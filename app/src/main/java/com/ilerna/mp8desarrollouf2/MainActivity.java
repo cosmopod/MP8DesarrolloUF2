@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadRegister(View v) {
-        Intent intent = new Intent(getBaseContext(), PlayerActivity.class);
+        Intent intent = new Intent(getBaseContext(), RegisterActivity.class);
         startActivity(intent);
     }
 }

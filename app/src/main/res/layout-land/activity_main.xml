@@ -46,8 +46,8 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="252dp"
-        android:layout_height="212dp"
+        android:layout_width="205dp"
+        android:layout_height="162dp"
         android:layout_marginTop="8dp"
         android:contentDescription="@string/greeting_img_desc"
         app:layout_constraintBottom_toBottomOf="parent"

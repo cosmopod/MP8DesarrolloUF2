@@ -10,11 +10,13 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     Button btnLogin;
+    Button btnRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnLogin = (Button) findViewById(R.id.sign_in_btn);
+        btnLogin = findViewById(R.id.sign_in_btn);
+        btnRegister = findViewById(R.id.sign_up_btn);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

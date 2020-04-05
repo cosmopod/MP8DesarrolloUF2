@@ -45,7 +45,7 @@
         app:layout_constraintStart_toEndOf="@+id/sign_in_btn" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageSplash"
         android:layout_width="205dp"
         android:layout_height="162dp"
         android:layout_marginTop="8dp"

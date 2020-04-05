@@ -18,7 +18,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintTop_toBottomOf="@+id/imageSplash"
         app:layout_constraintVertical_bias="0.120000005" />
 
     <Button
@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/greeting_textView" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageSplash"
         android:layout_width="296dp"
         android:layout_height="286dp"
         android:contentDescription="@string/greeting_img_desc"

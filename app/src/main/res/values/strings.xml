@@ -3,4 +3,5 @@
     <string name="greeting">WellCome to Space Vibes!</string>
     <string name="sign_in">Sign In</string>
     <string name="sign_up">Sign Up</string>
+    <string name="greeting_img_desc">Splash Image</string>
 </resources>

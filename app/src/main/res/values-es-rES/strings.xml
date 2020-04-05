@@ -5,4 +5,6 @@
     <string name="sign_in">Iniciar Sesión</string>
     <string name="sign_up">Registrarse</string>
     <string name="greeting_img_desc">Logo</string>
+    <string name="user_name">Usuario</string>
+    <string name="password">Contraseña</string>
 </resources>

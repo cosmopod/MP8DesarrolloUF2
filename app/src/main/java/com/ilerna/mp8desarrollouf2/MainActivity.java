@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnLogin;
     Button btnRegister;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +25,24 @@ public class MainActivity extends AppCompatActivity {
                 loadLogIn(v);
             }
         });
+
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadRegister(v);
+            }
+        });
     }
 
 
-    private void loadLogIn(View v){
+    private void loadLogIn(View v) {
         Toast toast = Toast.makeText(getApplicationContext(), "login", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    private void loadRegister(View v) {
+        Toast toast = Toast.makeText(getApplicationContext(), "register", Toast.LENGTH_SHORT);
         toast.show();
     }
 }

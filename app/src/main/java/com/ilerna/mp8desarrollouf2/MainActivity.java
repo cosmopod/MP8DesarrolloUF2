@@ -2,6 +2,7 @@ package com.ilerna.mp8desarrollouf2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void loadLogIn(View v) {
-        Toast toast = Toast.makeText(getApplicationContext(), "login", Toast.LENGTH_SHORT);
-        toast.show();
+        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+        startActivity(intent);
     }
 
     private void loadRegister(View v) {

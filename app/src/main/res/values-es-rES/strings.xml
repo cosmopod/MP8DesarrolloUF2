@@ -12,4 +12,5 @@
     <string name="username">Usuario</string>
     <string name="email">Email</string>
     <string name="create_account">Cree una cuenta</string>
+    <string name="start_session">Inicia Sesión</string>
 </resources>

@@ -7,4 +7,8 @@
     <string name="greeting_img_desc">Logo</string>
     <string name="user_name">Usuario</string>
     <string name="password">Contraseña</string>
+    <string name="name">Nombre</string>
+    <string name="last_name">Apellido</string>
+    <string name="username">Usuario</string>
+    <string name="email">Email</string>
 </resources>

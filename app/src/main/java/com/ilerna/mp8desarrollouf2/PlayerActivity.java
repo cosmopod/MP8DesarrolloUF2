@@ -51,14 +51,13 @@ public class PlayerActivity extends AppCompatActivity {
 
     private void stopMusic(View v) {
         if (mediaPlayer == null) return;
-        if (mediaPlayer.isPlaying()) {
-            mediaPlayer.stop();
-        }
+        mediaPlayer.seekTo(0);
+        mediaPlayer.pause();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        stopMusic(stopBtn);
+        if (mediaPlayer != null) mediaPlayer.stop();
     }
 }

@@ -24,6 +24,8 @@ public class PlayerActivity extends AppCompatActivity {
 
     User loggedUser;
 
+    boolean IsPlaying;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,11 +38,22 @@ public class PlayerActivity extends AppCompatActivity {
         password = findViewById(R.id.passLabel);
 
         mediaPlayer = MediaPlayer.create(this, R.raw.song);
+
+
         playBtn = findViewById(R.id.playBtn);
+        playBtn.setEnabled(false);
         stopBtn = findViewById(R.id.stopBtn);
 
         RetrieveLoggedUser();
         ShowUserInfo();
+
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mp) {
+                playBtn.setEnabled(true);
+            }
+        });
+
 
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,22 +89,29 @@ public class PlayerActivity extends AppCompatActivity {
 
     private void startMusic(View v) {
         if (mediaPlayer == null) return;
-        if (mediaPlayer.isPlaying()) {
+        if (IsPlaying) {
+            IsPlaying = false;
             mediaPlayer.pause();
         } else {
+            IsPlaying = true;
             mediaPlayer.start();
         }
     }
 
     private void stopMusic(View v) {
         if (mediaPlayer == null) return;
+        IsPlaying = false;
         mediaPlayer.seekTo(0);
         mediaPlayer.pause();
     }
 
+
     @Override
     protected void onPause() {
         super.onPause();
-        if (mediaPlayer != null) mediaPlayer.stop();
+        if (mediaPlayer != null && IsPlaying) {
+            IsPlaying = false;
+            mediaPlayer.stop();
+        }
     }
 }

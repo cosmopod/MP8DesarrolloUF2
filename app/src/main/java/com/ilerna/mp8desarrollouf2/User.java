@@ -11,6 +11,10 @@ public class User implements Serializable {
     private String UserName;
     private String Password;
 
+    public User(){
+
+    }
+
     public User(int id, String name, String lastName, String email, String userName, String password) {
         Id = id;
         Name = name;

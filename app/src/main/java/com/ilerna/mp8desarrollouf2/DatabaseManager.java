@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 
 public class DatabaseManager extends SQLiteOpenHelper {
 
+    public static final String DatabaseName = "DesarrolloUf2";
+
     public DatabaseManager(@Nullable Context context,
                            @Nullable String name,
                            @Nullable SQLiteDatabase.CursorFactory factory,
@@ -48,11 +50,15 @@ public class DatabaseManager extends SQLiteOpenHelper {
     }
 
     public User GetUserByNick(String userName) {
+        User user;
         SQLiteDatabase readableDb = getWritableDatabase();
         String readUsers = "SELECT * FROM Users WHERE Username = \"" + userName + "\"" + " LIMIT 1";
         Cursor cursor = readableDb.rawQuery(readUsers, null);
+        if (cursor.getCount() <= 0){
+            readableDb.close();
+            return null;
+        }
         cursor.moveToFirst();
-        User user;
         do {
             int Id = cursor.getInt(0);
             String name = cursor.getString(1);

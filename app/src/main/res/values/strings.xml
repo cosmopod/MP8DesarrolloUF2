@@ -16,5 +16,7 @@
     <string name="play">Play</string>
     <string name="stop">Stop</string>
     <string name="pause">Pause</string>
-
+    <string name="user_created">User has been created</string>
+    <string name="already_created">An user already exists with this nick</string>
+    <string name="user_error">An error has occured. Try again</string>
 </resources>

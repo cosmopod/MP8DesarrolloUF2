@@ -2,10 +2,15 @@ package com.ilerna.mp8desarrollouf2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.database.DatabaseErrorHandler;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.concurrent.ExecutionException;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -26,9 +31,8 @@ public class RegisterActivity extends AppCompatActivity {
         emailText = findViewById(R.id.emailText);
         usernameText = findViewById(R.id.usernameText);
         passwordText = findViewById(R.id.passText);
+
         registerBtn = findViewById(R.id.register_activity_btn);
-
-
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,9 +50,32 @@ public class RegisterActivity extends AppCompatActivity {
 
     }
 
-    private  void SaveUser(User user){
+    private void SaveUser(User user) {
 
-        DatabaseManager dbManager = new DatabaseManager(this, "DesarrolloUf2", null, 1);
-        dbManager.InsertUser(user);
+        try {
+            DatabaseManager dbManager = new DatabaseManager(this, DatabaseManager.DatabaseName, null, 1);
+            User savedUser = dbManager.GetUserByNick(user.getUserName());
+            if (savedUser == null) {
+                dbManager.InsertUser(user);
+                ShowToast(R.string.user_created);
+                LoadLogin(user);
+            } else {
+                ShowToast(R.string.already_created);
+            }
+        } catch (Exception e) {
+            ShowToast(R.string.user_error);
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void ShowToast(int message) {
+        Toast toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    private void LoadLogin(User user){
+        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+        intent.putExtra("user", user);
+        startActivity(intent);
     }
 }

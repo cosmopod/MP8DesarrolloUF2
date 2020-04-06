@@ -1,7 +1,9 @@
 package com.ilerna.mp8desarrollouf2;
 
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private int Id;
     private String Name;
     private String LastName;

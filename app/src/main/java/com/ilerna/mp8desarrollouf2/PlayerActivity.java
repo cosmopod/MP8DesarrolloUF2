@@ -111,7 +111,15 @@ public class PlayerActivity extends AppCompatActivity {
         super.onPause();
         if (mediaPlayer != null && IsPlaying) {
             IsPlaying = false;
-            mediaPlayer.stop();
+            mediaPlayer.pause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (!IsPlaying) {
+            playBtn.setText(R.string.play);
         }
     }
 }

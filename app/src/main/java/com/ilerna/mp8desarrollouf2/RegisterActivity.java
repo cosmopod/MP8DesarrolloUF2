@@ -3,14 +3,11 @@ package com.ilerna.mp8desarrollouf2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.DatabaseErrorHandler;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.util.concurrent.ExecutionException;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -30,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
         lastNameText = findViewById(R.id.lastNameText);
         emailText = findViewById(R.id.emailText);
         usernameText = findViewById(R.id.usernameText);
-        passwordText = findViewById(R.id.passText);
+        passwordText = findViewById(R.id.loginPassText);
 
         registerBtn = findViewById(R.id.register_activity_btn);
 
@@ -75,7 +72,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void LoadLogin(User user){
         Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-        intent.putExtra("user", user);
         startActivity(intent);
     }
 }

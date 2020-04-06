@@ -19,4 +19,5 @@
     <string name="user_created">User has been created</string>
     <string name="already_created">An user already exists with this nick</string>
     <string name="user_error">An error has occured. Try again</string>
+    <string name="login_error">Incorrect username or password</string>
 </resources>

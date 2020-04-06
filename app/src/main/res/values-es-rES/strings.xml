@@ -16,4 +16,5 @@
     <string name="welcome_message">Bienvenido</string>
     <string name="play">Reproducir</string>
     <string name="stop">Detener</string>
+    <string name="pause">Pausa</string>
 </resources>

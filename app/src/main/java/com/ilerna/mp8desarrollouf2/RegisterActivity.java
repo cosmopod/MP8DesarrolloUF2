@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    public static final int PassMinLength = 5;
+
     EditText nameText;
     EditText lastNameText;
     EditText emailText;
@@ -56,8 +58,13 @@ public class RegisterActivity extends AppCompatActivity {
                 passwordText.getText().toString().isEmpty()) {
             ShowToast(R.string.valid_form);
             isValid = false;
-
         }
+
+        if (passwordText.getText().toString().length() < PassMinLength) {
+            ShowToast(R.string.pass_length);
+            isValid = false;
+        }
+
         return isValid;
     }
 

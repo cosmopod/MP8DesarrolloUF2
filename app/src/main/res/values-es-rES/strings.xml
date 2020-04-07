@@ -19,6 +19,7 @@
     <string name="pause">Pausa</string>
     <string name="user_created">Se ha creado un usuario</string>
     <string name="valid_form">Usuario, correo electrónico y contraseña son campos requeridos</string>
+    <string name="pass_length">La contraseña debe contener al menos 5 carácteres</string>
     <string name="already_created">Ya existe un usuario con ese nombre</string>
     <string name="user_error">Ha habido un error. Inténtelo de nuevo</string>
     <string name="login_error">Usuario o contraseña incorrectos</string>

@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class PlayerActivity extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class PlayerActivity extends AppCompatActivity {
     TextView password;
 
     //Player
+    ProgressBar progressBar;
     MediaPlayer mediaPlayer;
     Button playBtn;
     Button stopBtn;
@@ -37,6 +39,7 @@ public class PlayerActivity extends AppCompatActivity {
         email = findViewById(R.id.emailLabel);
         password = findViewById(R.id.passLabel);
 
+        progressBar = findViewById(R.id.progressBar);
         mediaPlayer = MediaPlayer.create(this, R.raw.song);
 
 

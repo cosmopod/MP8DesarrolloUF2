@@ -41,10 +41,24 @@ public class RegisterActivity extends AppCompatActivity {
                         usernameText.getText().toString(),
                         passwordText.getText().toString());
 
-                SaveUser(user);
+                if (ValidateForm()) SaveUser(user);
             }
         });
 
+    }
+
+    private boolean ValidateForm() {
+
+        boolean isValid = true;
+
+        if (usernameText.getText().toString().isEmpty() ||
+                emailText.getText().toString().isEmpty() ||
+                passwordText.getText().toString().isEmpty()) {
+            ShowToast(R.string.valid_form);
+            isValid = false;
+
+        }
+        return isValid;
     }
 
     private void SaveUser(User user) {
@@ -70,7 +84,7 @@ public class RegisterActivity extends AppCompatActivity {
         toast.show();
     }
 
-    private void LoadLogin(User user){
+    private void LoadLogin(User user) {
         Intent intent = new Intent(getBaseContext(), LoginActivity.class);
         startActivity(intent);
     }

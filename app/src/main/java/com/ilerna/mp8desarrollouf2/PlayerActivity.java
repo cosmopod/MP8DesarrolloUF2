@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class PlayerActivity extends AppCompatActivity {
 
     //user Info
@@ -23,6 +26,7 @@ public class PlayerActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     Button playBtn;
     Button stopBtn;
+    Timer playerTimer;
 
     User loggedUser;
 
@@ -57,7 +61,6 @@ public class PlayerActivity extends AppCompatActivity {
             }
         });
 
-
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +77,7 @@ public class PlayerActivity extends AppCompatActivity {
                 playBtn.setText(R.string.play);
             }
         });
+
     }
 
     private void RetrieveLoggedUser() {
@@ -106,23 +110,43 @@ public class PlayerActivity extends AppCompatActivity {
         IsPlaying = false;
         mediaPlayer.seekTo(0);
         mediaPlayer.pause();
+        progressBar.setProgress(0);
     }
 
+    private void setProgressBar() {
+        playerTimer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                if (IsPlaying) {
+                    float currentPosition = mediaPlayer.getCurrentPosition();
+                    float duration = mediaPlayer.getDuration();
+                    float progress = (currentPosition / duration) * 100;
+                    progressBar.setProgress((int) progress);
+                }
+            }
+        };
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mediaPlayer != null && IsPlaying) {
-            IsPlaying = false;
-            mediaPlayer.pause();
-        }
+        playerTimer.schedule(timerTask, 0, 100);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        setProgressBar();
         if (!IsPlaying) {
             playBtn.setText(R.string.play);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        playerTimer.cancel();
+        playerTimer.purge();
+        if (mediaPlayer != null && IsPlaying) {
+            IsPlaying = false;
+            mediaPlayer.pause();
         }
     }
 }

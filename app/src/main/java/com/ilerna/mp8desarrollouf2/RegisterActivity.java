@@ -58,13 +58,12 @@ public class RegisterActivity extends AppCompatActivity {
                 passwordText.getText().toString().isEmpty()) {
             ShowToast(R.string.valid_form);
             isValid = false;
-        }
 
-        if (passwordText.getText().toString().length() < PassMinLength) {
+        } else if (passwordText.getText().toString().length() < PassMinLength) {
             ShowToast(R.string.pass_length);
             isValid = false;
         }
-
+        
         return isValid;
     }
 
